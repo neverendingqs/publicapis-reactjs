@@ -8,8 +8,8 @@ class ApiList extends Component {
     return (
       <div>
         {Object.keys(this.props.apisByCategory).map(category =>
-          <div>
-            <h2 key={category}>{category}</h2>
+          <div key={category}>
+            <h2>{category}</h2>
             <table className='table table-bordered table-striped'>
               <thead>
                 <tr>
@@ -23,13 +23,13 @@ class ApiList extends Component {
               </thead>
               <tbody>
                 {this.props.apisByCategory[category].map(api =>
-                  <tr key={api.API}>
+                  <tr key={api.API + api.Description}>
                     <td>{api.API}</td>
                     <td>{api.Description}</td>
                     <td>{api.Auth}</td>
                     <td>{api.HTTPS}</td>
                     <td>{api.Cors.toLowerCase() === 'unknown' ? '' : api.Cors}</td>
-                    <td><a href={api.Link} target="_blank" rel="noopener">Link</a></td>
+                    <td><a href={api.Link} target="_blank" rel="noopener noreferrer">Link</a></td>
                   </tr>
                 )}
               </tbody>
@@ -42,7 +42,9 @@ class ApiList extends Component {
 }
 
 const mapStateToProps = state => ({
-  apisByCategory: apisByCategorySelector(state)
+  apisByCategory: apisByCategorySelector(state),
+  rawData: state.rawData,
+  searchTerm: state.searchTerm
 });
 
 const connector = connect(mapStateToProps);
