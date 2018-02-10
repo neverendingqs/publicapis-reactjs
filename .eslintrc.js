@@ -16,12 +16,12 @@ module.exports = {
       "react"
     ],
     "rules": {
-        "indent": ["error", 2],
-        "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "single"],
-        "react/jsx-uses-react": ["error"],
-        "react/jsx-uses-vars": ["error"],
-        "semi": ["error", "always"]
+      "indent": ["error", 2, { "SwitchCase": 1 }],
+      "linebreak-style": ["error", "unix"],
+      "quotes": ["error", "single"],
+      "react/jsx-uses-react": ["error"],
+      "react/jsx-uses-vars": ["error"],
+      "semi": ["error", "always"]
     },
     "overrides": [{
       "files": "**/*.test.js",

@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { appLoad } from '../actions';
+
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.appLoad();
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,4 +27,7 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => bindActionCreators({ appLoad }, dispatch);
+
+const connector = connect(null, mapDispatchToProps);
+export default connector(App);
