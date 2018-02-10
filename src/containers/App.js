@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { appLoad } from '../actions';
-
-import logo from './logo.svg';
-import './App.css';
+import ApiList from '../containers/ApiList';
 
 class App extends Component {
   componentDidMount() {
@@ -14,14 +12,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <div className="text-center">
+          <h1 className="display-1">Public APIs</h1>
+          <p>Source: <a href='https://github.com/toddmotto/public-apis' target="_blank" rel="noopener">toddmotto/public-apis</a></p>
+          <p>API managed by: <a href='https://github.com/davemachado/public-api' target="_blank" rel="noopener">davemachado/public-api</a></p>
+          <hr />
+        </div>
+        <ApiList />
       </div>
     );
   }
